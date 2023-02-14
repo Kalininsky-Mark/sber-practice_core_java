@@ -5,20 +5,20 @@ import java.util.Scanner;
 public class Task8 {
     public static void main(String[] args){
         Scanner user_input = new Scanner(System.in);
-        System.out.println("Что это такое: синий, большой, с усами и полностью набит зайцами?");
+        System.out.println("Р§С‚Рѕ СЌС‚Рѕ С‚Р°РєРѕРµ: СЃРёРЅРёР№, Р±РѕР»СЊС€РѕР№, СЃ СѓСЃР°РјРё Рё РїРѕР»РЅРѕСЃС‚СЊСЋ РЅР°Р±РёС‚ Р·Р°Р№С†Р°РјРё?");
         String s;
         for (int i=1; i<=3;i++){
             s = user_input.nextLine();
-            if (Objects.equals(s, "Троллейбус")){
-                System.out.println("Правильно!");
+            if (Objects.equals(s, "РўСЂРѕР»Р»РµР№Р±СѓСЃ")){
+                System.out.println("РџСЂР°РІРёР»СЊРЅРѕ!");
                 break;
             }else{
-                if(Objects.equals(s, "Сдаюсь")) {
-                    System.out.println("Правильный ответ: троллейбус");
+                if(Objects.equals(s, "РЎРґР°СЋСЃСЊ")) {
+                    System.out.println("РџСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚: С‚СЂРѕР»Р»РµР№Р±СѓСЃ");
                     break;
                 }else{
                     if(i!=3) {
-                        System.out.println("Подумай ещё");
+                        System.out.println("РџРѕРґСѓРјР°Р№ РµС‰С‘");
                     }
                 }
             }
