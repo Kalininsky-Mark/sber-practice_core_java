@@ -19,28 +19,27 @@ public class PizzaOrder {
         address = a;
     }
     public void order(){
-        String sizze="";
-        switch (size){
-            case SMALL : sizze="Маленькая"; break;
-            case MEDIUM : sizze="Средняя"; break;
-            case BIG : sizze="Большая"; break;
-        }
+        String sizze = switch (size) {
+            case SMALL -> "РњР°Р»РµРЅСЊРєР°СЏ";
+            case MEDIUM -> "РЎСЂРµРґРЅСЏСЏ";
+            case BIG -> "Р‘РѕР»СЊС€Р°СЏ";
+        };
 
         if(! isAd){
             if (needSauce){
-                System.out.println("Заказ принят."+sizze+" пицца" + '"' + name +'"'
-                        + "с соусом на адрес"+address);
+                System.out.println("Р—Р°РєР°Р· РїСЂРёРЅСЏС‚."+sizze+" РїРёС†С†Р°" + '"' + name +'"'
+                        + "СЃ СЃРѕСѓСЃРѕРј РЅР° Р°РґСЂРµСЃ"+address);
                 isAd = true;
             }else {
-                System.out.println("Заказ принят. " + sizze + " пицца" + '"' + name + '"'
-                        + " без соуса на адрес " + address);
+                System.out.println("Р—Р°РєР°Р· РїСЂРёРЅСЏС‚. " + sizze + " РїРёС†С†Р°" + '"' + name + '"'
+                        + " Р±РµР· СЃРѕСѓСЃР° РЅР° Р°РґСЂРµСЃ " + address);
             }
         }else{
-            System.out.println("Заказ уже принят.");
+            System.out.println("Р—Р°РєР°Р· СѓР¶Рµ РїСЂРёРЅСЏС‚.");
         }
     }
     public void cancel(){
-        System.out.println("Заказ отклонён");
+        System.out.println("Р—Р°РєР°Р· РѕС‚РєР»РѕРЅС‘РЅ");
         isAd = false;
     }
 

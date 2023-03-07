@@ -14,7 +14,7 @@ public class Task1 {
         System.out.println(phone0.toString());
         System.out.println(phone0.getNumber());
         phone0.receiveCall("Иван");
-        phone0.receiveCall2("Иван","8(888)888-88-88");   // вызов метода receiveCall с двумя переменными
+        phone0.receiveCall2("Иван","8(888)888-88-88");
         phone0.sendMessage(arr);
         System.out.println(phone1.toString());
         System.out.println(phone2.toString());

@@ -2,12 +2,12 @@ package ru.sber.OOP1;
 
 public class Task5 {
     public static void main(String[] args){
-        PizzaOrder pizzaOrder = new PizzaOrder("Аль-Капчоне","BIG",true,"Ярославская 101.");
+        PizzaOrder pizzaOrder = new PizzaOrder("пїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅ","BIG",true,"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 101.");
         System.out.println(pizzaOrder.toString());
         pizzaOrder.order();
         pizzaOrder.order();
-        pizzaOrder.setAddress("Ярославская 666.");
-        pizzaOrder.setName("домашняя");
+        pizzaOrder.setAddress("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 666.");
+        pizzaOrder.setName("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         pizzaOrder.setSize("SMALL");
         pizzaOrder.setNeedSauce(false);
         System.out.println(pizzaOrder.getAddress());
