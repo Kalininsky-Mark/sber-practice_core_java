@@ -1,6 +1,5 @@
 package ru.sber.oop1;
 
-
 public class Task4 {
     public static void main(String[] args){
         Author author = new Author("Лев","мужской","Tolstoy.Lev@yandex.ru");

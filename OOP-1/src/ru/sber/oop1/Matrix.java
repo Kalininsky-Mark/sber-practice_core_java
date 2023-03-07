@@ -1,6 +1,5 @@
 package ru.sber.oop1;
 
-
 public class Matrix {
     private static double[][] values;
     private int n;  // число столбцов

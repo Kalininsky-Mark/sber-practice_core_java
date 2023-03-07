@@ -1,7 +1,6 @@
 package ru.sber.oop1;
 
 
-
 public class Task1 {
     public static void main(String[] args){
         String[] arr = new String[5];

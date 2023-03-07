@@ -1,7 +1,6 @@
 package ru.sber.oop1;
 
 
-
 public class Author {
     private String name;
     private String gender;

@@ -1,7 +1,6 @@
 package ru.sber.oop1;
 
 
-
 public class Book {
     private int year;
     private Author author;

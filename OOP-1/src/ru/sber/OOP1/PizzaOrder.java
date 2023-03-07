@@ -1,4 +1,4 @@
-package ru.sber.OOP1;
+package ru.sber.oop1;
 
 
 
