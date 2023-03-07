@@ -1,9 +1,10 @@
 package ru.sber.OOP1;
 
+
 public class Matrix {
     private static double[][] values;
-    private int n;  // ����� ��������
-    private int m;  // ����� �����
+    private int n;  // число столбцов
+    private int m;  // число строк
 
     Matrix(int n0,int m0){
         n = n0;
@@ -39,7 +40,7 @@ public class Matrix {
         }
     }
 
-    public void matrixXmatix(double[][] a,double[][] b){//��������� ������� �� ������� � ��������� ������� b
+    public void matrixXmatix(double[][] a,double[][] b){//умножение матрицы на матрицу а результат матрица b
         for(int j=0;j<n;j++) {
             for (int i=0;i<a[0].length;i++) {
                 for (int k=0;k<a.length;k++){

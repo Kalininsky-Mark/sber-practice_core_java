@@ -1,5 +1,6 @@
 package ru.sber.OOP1;
 
+
 public class Task3 {
     public static void main(String[] args){
         double[][] matr = new double[2][2];

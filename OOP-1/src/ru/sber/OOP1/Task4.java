@@ -1,13 +1,14 @@
 package ru.sber.OOP1;
 
+
 public class Task4 {
     public static void main(String[] args){
-        Author author = new Author("Лев","мужской","Tolstoy.Lev@yandex.ru");
+        Author author = new Author("Р›РµРІ","РјСѓР¶СЃРєРѕР№","Tolstoy.Lev@yandex.ru");
         Book book = new Book(1873,author);
         System.out.println(author.toString());
         System.out.println(book.toString());
-        author.setName("Елизавета");
-        author.setGender("женский");
+        author.setName("РђРЅРЅР°");
+        author.setGender("Р¶РµРЅСЃРєРёР№");
         author.setEmail("Ahmatova.Elizaveta@yandex.ru");
         System.out.println(author.getName());
         System.out.println(author.getGender());

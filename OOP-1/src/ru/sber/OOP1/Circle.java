@@ -1,7 +1,6 @@
 package ru.sber.OOP1;
 
 
-
 public class Circle {
     private int radius;
     private String color;
