@@ -12,19 +12,19 @@ public class Phone{
     }
     public void receiveCall(String name){
         String out;
-        out = "Звонит "+ name;
+        out = "Р—РІРѕРЅРёС‚ "+ name;
         System.out.println(out);
     }
-    Phone(String n, String m, int w){   //конструктор Phone
+    Phone(String n, String m, int w){   //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Phone
         number = n;
         model = m;
         weight = w;
     }
-    Phone(String n, String m){  //конструктор для двух переменных
+    Phone(String n, String m){  //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РґРІСѓС… РїРµСЂРµРјРµРЅРЅС‹С…
         number = n;
         model = m;
     }
-    Phone(){  //пустой конструктор
+    Phone(){  //РїСѓСЃС‚РѕР№ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     }
     public void sendMessage(String[] numbers){
         for (String s : numbers) {
@@ -38,7 +38,7 @@ public class Phone{
 
     public void receiveCall2(String name, String n) {
         String out;
-        out = "Звонит "+ name + " " + n;
+        out = "Р—РІРѕРЅРёС‚ "+ name + " " + n;
         System.out.println(out);
 
     }
