@@ -1,5 +1,6 @@
 package ru.sber.OOP2;
 
+
 public class Rectangle extends Figure {
     Point p3;
     Point p2 = new Point(0.0, 0.0);

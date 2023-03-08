@@ -1,5 +1,6 @@
 package ru.sber.OOP2;
 
+
 public class Point {
     double x;
     double y;

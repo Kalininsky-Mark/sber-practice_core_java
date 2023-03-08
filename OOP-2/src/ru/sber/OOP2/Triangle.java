@@ -1,5 +1,6 @@
 package ru.sber.OOP2;
 
+
 public class Triangle extends Figure{
     Point p2, p3;
     public Triangle(Point p, Point p2, Point p3){
