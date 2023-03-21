@@ -1,4 +1,4 @@
-package ru.sber.collections1;
+package ru.sber.collections;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;

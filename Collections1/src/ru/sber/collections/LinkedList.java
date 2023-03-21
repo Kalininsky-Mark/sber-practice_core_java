@@ -1,5 +1,5 @@
 
-package ru.sber.collections1;
+package ru.sber.collections;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 public class LinkedList implements Deque, List, Iterable {

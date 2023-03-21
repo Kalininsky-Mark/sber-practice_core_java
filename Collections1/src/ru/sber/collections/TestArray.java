@@ -1,4 +1,4 @@
-package ru.sber.collections1;
+package ru.sber.collections;
 
 public class TestArray {
     public static void main(String[] args){

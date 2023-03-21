@@ -1,7 +1,4 @@
-package ru.sber.collections1;
-
-import java.util.Iterator;
-import java.util.ListIterator;
+package ru.sber.collections;
 
 public interface List extends Collection {
     void add(int index, Object item);

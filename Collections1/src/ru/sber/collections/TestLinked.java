@@ -1,4 +1,4 @@
-package ru.sber.collections1;
+package ru.sber.collections;
 
 public class TestLinked {
     public static void main(String[] args) {

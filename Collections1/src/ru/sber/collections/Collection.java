@@ -1,6 +1,4 @@
-package ru.sber.collections1;
-
-import java.util.Iterator;
+package ru.sber.collections;
 
 public interface Collection extends Iterable {
     int size();
