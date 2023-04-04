@@ -1,0 +1,309 @@
+
+package org.example.Collections.src.ru.sber.collections;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+public class LinkedList implements Deque, List, Iterable {
+    private static class Iterator implements java.util.Iterator<Object> {
+
+        private final LinkedList list;
+
+        private int curInd = 0;
+
+        public Iterator(LinkedList list) {
+            this.list = list;
+        }
+
+        public boolean hasNext() {
+            return curInd < list.size();
+        }
+
+        public Object next() throws NoSuchElementException {
+            if (hasNext()) {
+                return list.get(curInd++);
+            }
+
+            throw new NoSuchElementException();
+        }
+
+    }
+
+    private static class Node {
+        public Object data;
+
+        public Node previous;
+
+        public Node next;
+
+        public Node(Object data, Node previous, Node next) {
+            this.data = data;
+            this.previous = previous;
+            this.next = next;
+        }
+    }
+
+    private Node head;
+
+    private Node tail;
+
+    private int size;
+
+    private void checkBounds() throws NoSuchElementException {
+        if (this.size == 0) {
+            throw new NoSuchElementException();
+        }
+    }
+
+    private void checkPositionIndex(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index > this.size) {
+            throw new IndexOutOfBoundsException("Индекс вышел за границы списка");
+        }
+    }
+
+    private void checkElementIndex(int index) throws IndexOutOfBoundsException {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException("Индекс вышел за границы списка");
+        }
+    }
+
+    private Node getNode(int index) throws IndexOutOfBoundsException {
+        checkElementIndex(index);
+
+        Node currentNode = this.head;
+
+        while (index-- > 0) {
+            currentNode = currentNode.next;
+        }
+
+        return currentNode;
+    }
+
+    private Object removeNode(Node nodeToRemove) {
+        Object ElementToReturn = nodeToRemove.data;
+        Node nextNode = nodeToRemove.next;
+        Node previousNode = nodeToRemove.previous;
+
+        if (previousNode == null) {
+            this.head = nextNode;
+        } else {
+            previousNode.next = nextNode;
+        }
+
+        if (nextNode == null) {
+            this.tail = previousNode;
+        } else {
+            nextNode.previous = previousNode;
+        }
+
+        this.size--;
+        nodeToRemove.data = null;
+        size--;
+        return ElementToReturn;
+    }
+
+    private LinkedList(Node head, Node tail, int size) {
+        this.head = head;
+        this.tail = tail;
+        this.size = size;
+    }
+
+    public LinkedList() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+
+    public int size() {
+        return this.size;
+    }
+
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    public boolean contains(Object item) {
+        return indexOf(item) >= 0;
+    }
+
+    public boolean add(Object item) {
+        addLast(item);
+        return true;
+    }
+
+    public boolean remove(Object item) {
+        if (item == null) {
+            for (Node x =  this.tail; x != null; x = x.next) {
+                if (x.data == null) {
+                    removeNode(x);
+                    return true;
+                }
+            }
+        } else {
+            for (Node x = this.tail; x != null; x = x.next) {
+                if (item.equals(x.data)) {
+                    removeNode(x);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public void clear() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+    public void addFirst(Object item) {
+        Node headNode = this.head;
+        Node newNode = new Node(item, null, headNode);
+        this.head = newNode;
+
+        if (headNode == null) {
+            this.tail = newNode;
+        } else {
+            headNode.previous = newNode;
+        }
+
+        this.size++;
+    }
+
+    public void addLast (Object item) {
+        Node tailNode = this.tail;
+        Node newNode = new Node(item, tailNode, null);
+        this.tail = newNode;
+
+        if (tailNode == null) {
+            this.head = newNode;
+        } else {
+            tailNode.next = newNode;
+        }
+
+        this.size++;
+    }
+
+    public Object getFirst() throws NoSuchElementException {
+        checkBounds();
+
+        return this.head.data;
+    }
+
+
+    public Object getLast() throws NoSuchElementException {
+        checkBounds();
+
+        return this.tail.data;
+    }
+
+
+    public Object pollFirst() {
+        if (this.head == null) {
+            return null;
+        }
+
+        return removeFirst();
+    }
+
+    public Object pollLast() {
+        if (this.tail == null) {
+            return null;
+        }
+
+        return removeLast();
+    }
+
+    public Object removeLast() throws NoSuchElementException {
+        checkBounds();
+
+        Object objectToReturn = this.tail.data;
+        remove(this.tail.data);
+        return objectToReturn;
+    }
+
+    public Object removeFirst() throws NoSuchElementException {
+        checkBounds();
+
+        Object objectToReturn = this.head.data;
+        remove(this.head.data);
+        return objectToReturn;
+    }
+
+    public void add(int index, Object item) {
+        checkPositionIndex(index);
+
+        if (this.size == index) {
+            addLast(item);
+        } else {
+            Node linkToNode = getNode(index);
+            Node previousNode = linkToNode.previous;
+            Node newNode = new Node(item, previousNode, linkToNode);
+            linkToNode.previous = newNode;
+
+            if (previousNode == null) {
+                this.head = newNode;
+            } else {
+                previousNode.next = newNode;
+            }
+
+            this.size++;
+        }
+    }
+
+    public void set(int index, Object item) {
+        if (this.size == index) {
+            addLast(item);
+        } else if (this.size > index) {
+            getNode(index).data = item;
+        }
+    }
+
+    public Object get(int index) throws IndexOutOfBoundsException {
+        return getNode(index).data;
+    }
+
+    public int indexOf(Object item) {
+        int i = 0;
+
+        for (Node currentNode = this.head; currentNode != null; currentNode = currentNode.next) {
+            if (Objects.equals(currentNode.data, item)) {
+                return i;
+            }
+
+            i++;
+        }
+
+        return -1;
+    }
+
+    public int lastIndexOf(Object item) {
+        int index = this.size;
+
+        for (Node currentNode = this.tail; currentNode != null; currentNode = currentNode.previous) {
+            index--;
+
+            if (Objects.equals(currentNode.data, item)) {
+                return index;
+            }
+        }
+
+        return -1;
+    }
+
+    public Object removeAt(int index) throws IndexOutOfBoundsException {
+        checkElementIndex(index);
+        return removeNode(getNode(index));
+    }
+
+    public List subList(int from, int to) throws IndexOutOfBoundsException {
+        checkElementIndex(from);
+        checkPositionIndex(to);
+
+        return new LinkedList(getNode(from), getNode(to - 1), to - from + 1);
+    }
+
+    public Iterator iterator() {
+        return new Iterator(this);
+    }
+}
